@@ -1,6 +1,7 @@
 package main
 
 import (
+	"gopher_social/internal/store"
 	"log"
 	"os"
 
@@ -15,9 +16,11 @@ func main() {
 	cfg := config{
 		addr: os.Getenv("ADDR"),
 	}
+	store := store.NewStorage(nil)
 
 	app := &application{
 		config: cfg,
+		store:  store,
 	}
 
 	mux := app.mount()

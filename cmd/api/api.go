@@ -1,6 +1,7 @@
 package main
 
 import (
+	"gopher_social/internal/store"
 	"log"
 	"net/http"
 	"time"
@@ -10,6 +11,7 @@ import (
 )
 
 type application struct {
+	store  store.Storage
 	config config
 }
 
